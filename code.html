@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jiuyi Desktop Home Screen</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-high": "#2a2a2a",
+                    "secondary-fixed-dim": "#d1bcff",
+                    "tertiary": "#ffd59c",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-on-surface": "#313030",
+                    "secondary": "#d1bcff",
+                    "primary-container": "#00d1ff",
+                    "inverse-primary": "#00677f",
+                    "outline-variant": "#3c494e",
+                    "on-primary-fixed": "#001f28",
+                    "on-primary-fixed-variant": "#004e60",
+                    "on-tertiary-fixed-variant": "#624000",
+                    "primary": "#a4e6ff",
+                    "on-error": "#690005",
+                    "on-secondary-fixed": "#23005b",
+                    "tertiary-container": "#feb127",
+                    "tertiary-fixed-dim": "#ffba49",
+                    "on-tertiary-container": "#6b4700",
+                    "on-surface": "#e5e2e1",
+                    "secondary-container": "#7000ff",
+                    "primary-fixed": "#b7eaff",
+                    "on-secondary-fixed-variant": "#5700c9",
+                    "inverse-surface": "#e5e2e1",
+                    "background": "#131313",
+                    "outline": "#859399",
+                    "on-surface-variant": "#bbc9cf",
+                    "primary-fixed-dim": "#4cd6ff",
+                    "on-tertiary": "#442b00",
+                    "on-error-container": "#ffdad6",
+                    "surface": "#131313",
+                    "surface-bright": "#393939",
+                    "on-tertiary-fixed": "#291800",
+                    "tertiary-fixed": "#ffddb1",
+                    "on-secondary-container": "#ddcdff",
+                    "error": "#ffb4ab",
+                    "error-container": "#93000a",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#003543",
+                    "on-primary-container": "#00566a",
+                    "surface-variant": "#353534",
+                    "surface-container-low": "#1c1b1b",
+                    "secondary-fixed": "#e9ddff",
+                    "surface-container-highest": "#353534",
+                    "surface-tint": "#4cd6ff",
+                    "surface-dim": "#131313",
+                    "on-secondary": "#3c0090",
+                    "surface-container": "#201f1f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter-grid": "16px",
+                    "drawer-top-gap": "64px",
+                    "dock-padding": "32px",
+                    "margin-main": "24px"
+            },
+            "fontFamily": {
+                    "display-time": ["Inter", "sans-serif"],
+                    "label-md": ["Inter", "sans-serif"],
+                    "label-sm": ["Inter", "sans-serif"],
+                    "display-date": ["Inter", "sans-serif"],
+                    "headline-md": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"],
+                    "headline-lg": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                    "display-time": ["80px", {"lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "label-sm": ["10px", {"lineHeight": "12px", "fontWeight": "600"}],
+                    "display-date": ["18px", {"lineHeight": "24px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+            },
+            "animation": {
+                'breathe': 'breathe 4s ease-in-out infinite',
+            },
+            "keyframes": {
+                'breathe': {
+                    '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(164, 230, 255, 0.4)' },
+                    '50%': { transform: 'scale(1.05)', boxShadow: '0 0 15px 2px rgba(164, 230, 255, 0.8)' },
+                }
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-screen w-screen overflow-hidden relative font-sans">
+<!-- Wallpaper Background -->
+<div class="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-1000 ease-out transform scale-105" data-alt="A breathtaking, ultra-high-resolution landscape photograph of a serene mountain lake at dawn. The scene features lush, dark green pine forests reflecting in the perfectly still, crystal-clear water. Soft, ethereal morning mist rolls over the water's surface, while the sky above transitions from deep indigo to soft pink and vibrant cyan. The lighting is dramatic yet calming, providing a perfect natural canvas for a modern, glassmorphic dark-mode UI overlay." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBF7QR-q4HzvcSVkxtjSEspxLFlOddRpQ2lzK_-PaRFsL-RDtmlkqoFVV6SEErlkMIyInVZTNJJ00VL6INReIZ160Fy6JSpf5OvaT5KTHqpv9dsgqrkdlpw7nSRmQXnVFADaXBNRqWcQHvO6KtUzAo9asATkn_hl7jbjixsMvC4jgltY3KJx71n4N-oD91BAdfRJxNdn4_Dj112FGVHA7bRM6b7T4WWMoaKvmhBVTh9g6zoLYZ5Wau5B2qy9lo4_pFqdRS-EEP1JP0');">
+</div>
+<!-- Status Bar (Minimal) -->
+<div class="absolute top-0 w-full pt-gutter-grid px-margin-main flex justify-end items-center gap-4 z-50 text-white drop-shadow-md">
+<span class="material-symbols-outlined text-[18px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">battery_full</span>
+</div>
+<!-- Central Clock Widget -->
+<div class="absolute top-[25%] left-0 w-full flex flex-col items-center justify-center z-40 px-margin-main cursor-default select-none pointer-events-none">
+<h1 class="font-display-time text-display-time text-primary-container drop-shadow-2xl">09:41</h1>
+<p class="font-display-date text-display-date text-white mt-2 drop-shadow-lg opacity-90 tracking-widest uppercase">12月21日 星期五</p>
+</div>
+<!-- Bottom Nav Bar (Dock) -->
+<div class="fixed bottom-0 left-0 w-full z-50 flex justify-center mb-dock-padding px-margin-main pb-4">
+<!-- Structural Shell + Separation Logic -->
+<nav class="flex justify-around items-center h-20 w-full max-w-md backdrop-blur-3xl bg-surface-container-lowest/20 rounded-full border border-white/10 shadow-lg px-2">
+<!-- Inactive App 1: Messages (chat) -->
+<button class="flex items-center justify-center text-on-surface w-12 h-12 hover:scale-110 transition-transform duration-300 ease-out group">
+<span class="material-symbols-outlined text-[28px] opacity-80 group-hover:opacity-100 drop-shadow-md" data-icon="chat" data-weight="fill" style="font-variation-settings: 'FILL' 1;">chat</span>
+</button>
+<!-- Inactive App 2: Phone (call) -->
+<button class="flex items-center justify-center text-on-surface w-12 h-12 hover:scale-110 transition-transform duration-300 ease-out group">
+<span class="material-symbols-outlined text-[28px] opacity-80 group-hover:opacity-100 drop-shadow-md" data-icon="call" data-weight="fill" style="font-variation-settings: 'FILL' 1;">call</span>
+</button>
+<!-- Active Anchor: Central Menu Button (circle) -->
+<button class="flex items-center justify-center bg-primary text-on-primary rounded-full w-14 h-14 border-4 border-primary/30 active:scale-90 transition-transform duration-200 animate-breathe mx-2 group">
+<span class="material-symbols-outlined text-[32px] group-hover:rotate-90 transition-transform duration-500 ease-in-out" data-icon="circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">circle</span>
+</button>
+<!-- Inactive App 3: Browser (browser_updated) -->
+<button class="flex items-center justify-center text-on-surface w-12 h-12 hover:scale-110 transition-transform duration-300 ease-out group">
+<span class="material-symbols-outlined text-[28px] opacity-80 group-hover:opacity-100 drop-shadow-md" data-icon="browser_updated">browser_updated</span>
+</button>
+<!-- Inactive App 4: Camera/Mail (mail) -->
+<button class="flex items-center justify-center text-on-surface w-12 h-12 hover:scale-110 transition-transform duration-300 ease-out group">
+<span class="material-symbols-outlined text-[28px] opacity-80 group-hover:opacity-100 drop-shadow-md" data-icon="mail" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mail</span>
+</button>
+</nav>
+</div>
+<!-- Subtle interactive script for wallpaper parallax (bonus interaction) -->
+<script>
+        document.addEventListener('mousemove', (e) => {
+            const bg = document.querySelector('.bg-cover');
+            const x = (e.clientX / window.innerWidth - 0.5) * 10;
+            const y = (e.clientY / window.innerHeight - 0.5) * 10;
+            bg.style.transform = `scale(1.05) translate(${-x}px, ${-y}px)`;
+        });
+    </script>
+</body></html>
