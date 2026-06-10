@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jiuyi Desktop Gesture Overlay</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed-dim": "#d1bcff",
+                        "tertiary": "#ffd59c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#d1bcff",
+                        "primary-container": "#00d1ff",
+                        "inverse-primary": "#00677f",
+                        "outline-variant": "#3c494e",
+                        "on-primary-fixed": "#001f28",
+                        "on-primary-fixed-variant": "#004e60",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "primary": "#a4e6ff",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#23005b",
+                        "tertiary-container": "#feb127",
+                        "tertiary-fixed-dim": "#ffba49",
+                        "on-tertiary-container": "#6b4700",
+                        "on-surface": "#e5e2e1",
+                        "secondary-container": "#7000ff",
+                        "primary-fixed": "#b7eaff",
+                        "on-secondary-fixed-variant": "#5700c9",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "outline": "#859399",
+                        "on-surface-variant": "#bbc9cf",
+                        "primary-fixed-dim": "#4cd6ff",
+                        "on-tertiary": "#442b00",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed": "#291800",
+                        "tertiary-fixed": "#ffddb1",
+                        "on-secondary-container": "#ddcdff",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "on-background": "#e5e2e1",
+                        "on-primary": "#003543",
+                        "on-primary-container": "#00566a",
+                        "surface-variant": "#353534",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-container-highest": "#353534",
+                        "surface-tint": "#4cd6ff",
+                        "surface-dim": "#131313",
+                        "on-secondary": "#3c0090",
+                        "surface-container": "#201f1f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-grid": "16px",
+                        "drawer-top-gap": "64px",
+                        "dock-padding": "32px",
+                        "margin-main": "24px"
+                    },
+                    "fontFamily": {
+                        "display-time": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-date": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-time": ["80px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-sm": ["10px", { "lineHeight": "12px", "fontWeight": "600" }],
+                        "display-date": ["18px", { "lineHeight": "24px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>.spring-stiff {
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    }
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(20px);
+        } 100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        }
+    }
+.animate-gesture-overlay {
+    animation: fadeInScale 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards
+    }
+/* simulated wallpaper background for the body */
+body {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCpKFq7pXt6PBHqMBhIM7UxxavDXrL6iDvo1QkY2VqoXxZ9MKZu0SkANsXJxR4eTKMYk1EBDygO2MSqqvSngvD3fv-rjssN--PFkPpGbWN-2UINOxuy-l5wwOVrSURfWf1qCwtwSzMmmWNTzFPBx03stjFL9h2ziurmni79DY6jX9bIQncKbZc0f56MYXa7t23PgA4B9et7WiwoEZ972EKI1MVqOEZK5PfHaGUsxnIYkestyNxwq6MCBRIwo_QaIVJsN80gMf983T0);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface antialiased h-screen w-screen overflow-hidden flex items-end justify-center relative">
+<!-- Wallpaper overlay blur -->
+<div class="absolute inset-0 z-0 backdrop-blur-[32px] bg-surface-container-low/60 pointer-events-none transition-all duration-500 ease-in-out"></div>
+<!-- Top App Bar (Suppressed intentionally as per rules, overlay is not a top-level destination, but keeping structure if needed to close) -->
+<!-- Content Canvas (Empty for overlay context) -->
+<!-- Gesture Overlay Container -->
+<div class="relative z-10 w-full max-w-md px-margin-main pb-24 flex flex-col items-center animate-gesture-overlay">
+<!-- Pull Handle Indicator -->
+<div class="w-12 h-1 bg-white/30 rounded-full mb-8 shadow-sm"></div>
+<!-- Utility Grid -->
+<div class="grid grid-cols-4 gap-x-gutter-grid gap-y-6 w-full">
+<!-- Icon 1: Add -->
+<button class="flex flex-col items-center group transition-transform duration-200 hover:scale-105 active:scale-95">
+<div class="w-[60px] h-[60px] rounded-[20px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center mb-2 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.3)] group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface text-[28px]" data-icon="add">add</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">添加</span>
+</button>
+<!-- Icon 2: Effects -->
+<button class="flex flex-col items-center group transition-transform duration-200 hover:scale-105 active:scale-95">
+<div class="w-[60px] h-[60px] rounded-[20px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center mb-2 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.3)] group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface text-[28px]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">换特效</span>
+</button>
+<!-- Icon 3: Beautify -->
+<button class="flex flex-col items-center group transition-transform duration-200 hover:scale-105 active:scale-95">
+<div class="w-[60px] h-[60px] rounded-[20px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center mb-2 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.3)] group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface text-[28px]" data-icon="brush">brush</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">快速美化</span>
+</button>
+<!-- Icon 4: System -->
+<button class="flex flex-col items-center group transition-transform duration-200 hover:scale-105 active:scale-95">
+<div class="w-[60px] h-[60px] rounded-[20px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center mb-2 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.3)] group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface text-[28px]" data-icon="settings">settings</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">系统设置</span>
+</button>
+<!-- Icon 5: Themes -->
+<button class="flex flex-col items-center group transition-transform duration-200 hover:scale-105 active:scale-95">
+<div class="w-[60px] h-[60px] rounded-[20px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center mb-2 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.3)] group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface text-[28px]" data-icon="palette">palette</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">个性主题</span>
+</button>
+<!-- Icon 6: Profile -->
+<button class="flex flex-col items-center group transition-transform duration-200 hover:scale-105 active:scale-95">
+<div class="w-[60px] h-[60px] rounded-[20px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center mb-2 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.3)] group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface text-[28px]" data-icon="person">person</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">个人中心</span>
+</button>
+<!-- Icon 7: Preview -->
+<button class="flex flex-col items-center group transition-transform duration-200 hover:scale-105 active:scale-95">
+<div class="w-[60px] h-[60px] rounded-[20px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center mb-2 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.3)] group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface text-[28px]" data-icon="preview">preview</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">屏幕预览</span>
+</button>
+<!-- Icon 8: Desktop Settings -->
+<button class="flex flex-col items-center group transition-transform duration-200 hover:scale-105 active:scale-95">
+<div class="w-[60px] h-[60px] rounded-[20px] bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center mb-2 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.3)] group-hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface text-[28px]" data-icon="desktop_windows">desktop_windows</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">桌面设置</span>
+</button>
+</div>
+</div>
+<script>
+        // Simple tap effect simulation for visual feedback
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.add('scale-90');
+                setTimeout(() => this.classList.remove('scale-90'), 150);
+            });
+        });
+    </script>
+</body></html>
