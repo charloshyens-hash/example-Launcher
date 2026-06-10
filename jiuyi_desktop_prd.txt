@@ -1,0 +1,36 @@
+# Jiuyi Desktop (久以桌面) Product Requirements
+
+## Core Concept
+A minimalist Android Launcher restoring the interaction paradigm of the classic 91 Desktop.
+
+## Key Screens & Features
+
+### 1. Home Screen (主屏幕)
+- **Full-screen Wallpaper**: Extends behind status and navigation bars.
+- **Clock Widget**: Center-aligned date and time. Colors sync with the theme.
+- **Bottom Dock**:
+    - Central circular "Menu" button to open the App Drawer.
+    - Up to 4 customizable app shortcuts (2 on each side of the menu button).
+    - Entire dock is centered based on icon count.
+- **Gestures**: Swipe up or long-press to trigger a semi-transparent settings overlay with 8 options (4x2 grid).
+
+### 2. App Drawer (应用抽屉)
+- **Grid Layout**: 4 columns x 6 rows per page.
+- **Navigation**: Horizontal paging (left/right swipe), no vertical scroll.
+- **Top Toolbar**: Tabs for "Apps" (应用), "Widgets" (小部件), and "My Phone" (我的手机). Search icon and overflow menu (refresh, sort, hide apps, folders, settings).
+- **Return Behavior**: Back button returns to the first page of the drawer or closes it.
+
+### 3. Gesture/Settings Overlay (快捷菜单)
+- 8 Icons: Add, Change Effect, Quick Beautify, System Settings, Themes, Personal Center, Screen Preview, Desktop Settings.
+- Translucent background with blurred wallpaper.
+
+### 4. Settings Panel (设置面板)
+- Drawer layout (3/4/5 columns).
+- Icon label toggle.
+- Icon pack management.
+- Theme color picker.
+
+## Design Constraints
+- Theme color affects: Menu button, clock font, icons, and labels.
+- Support for Light/Dark modes.
+- Preserve 91 Desktop's specific layout and "paged" app drawer.
