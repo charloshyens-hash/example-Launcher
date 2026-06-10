@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jiuyi Desktop App Drawer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed-dim": "#d1bcff",
+                        "tertiary": "#ffd59c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#d1bcff",
+                        "primary-container": "#00d1ff",
+                        "inverse-primary": "#00677f",
+                        "outline-variant": "#3c494e",
+                        "on-primary-fixed": "#001f28",
+                        "on-primary-fixed-variant": "#004e60",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "primary": "#a4e6ff",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#23005b",
+                        "tertiary-container": "#feb127",
+                        "tertiary-fixed-dim": "#ffba49",
+                        "on-tertiary-container": "#6b4700",
+                        "on-surface": "#e5e2e1",
+                        "secondary-container": "#7000ff",
+                        "primary-fixed": "#b7eaff",
+                        "on-secondary-fixed-variant": "#5700c9",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "outline": "#859399",
+                        "on-surface-variant": "#bbc9cf",
+                        "primary-fixed-dim": "#4cd6ff",
+                        "on-tertiary": "#442b00",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed": "#291800",
+                        "tertiary-fixed": "#ffddb1",
+                        "on-secondary-container": "#ddcdff",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "on-background": "#e5e2e1",
+                        "on-primary": "#003543",
+                        "on-primary-container": "#00566a",
+                        "surface-variant": "#353534",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-container-highest": "#353534",
+                        "surface-tint": "#4cd6ff",
+                        "surface-dim": "#131313",
+                        "on-secondary": "#3c0090",
+                        "surface-container": "#201f1f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-grid": "16px",
+                        "drawer-top-gap": "64px",
+                        "dock-padding": "32px",
+                        "margin-main": "24px"
+                    },
+                    "fontFamily": {
+                        "display-time": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-date": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-time": ["80px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-sm": ["10px", { "lineHeight": "12px", "fontWeight": "600" }],
+                        "display-date": ["18px", { "lineHeight": "24px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.material-symbols-outlined.fill {
+    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+/* Simulated wallpaper background */
+body {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuC4yBsg1gPy4cePeHIqZf7IDwtv6XeTsQ5TIL6TS-d9le1EnwwdKGRRDY3d5PTC702X6kn1SLXxz12hc0JAr03fQvnvYeoD3JzDUN3YoaFbSeiYDCel9K_sZz8c3zPSVHHehau9QsC63W5Dz7FBS05ZgsrSfuQ4lkS6GYXoE0GWgeDbuv2YCSQ7hfi04Cf7YSzv52pMYkk7xxL3fuIN01SLU8s65nM9rK9SI21H8ydisH17wS0axX53MxQg9D2yxrw7PxdhRWt6lS0);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* App drawer usually prevents scrolling behind */
+    }
+/* Glassmorphism utility for app icons */
+.glass-icon-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background font-body-lg antialiased">
+<!-- NavigationDrawer Shell -->
+<div class="fixed inset-0 z-40 flex flex-col pt-drawer-top-gap px-margin-main bg-surface-container-low/60 backdrop-blur-[32px] spring-stiff transition-transform">
+<!-- Drawer Header -->
+<header class="flex items-center justify-between mb-6 shrink-0">
+<!-- Tabs -->
+<nav class="flex gap-6">
+<!-- Active Tab -->
+<button class="pb-1 text-primary font-bold border-b-2 border-primary text-label-md font-label-md transition-all duration-300 ease-in-out hover:bg-white/5 px-2">
+                    应用
+                </button>
+<!-- Inactive Tabs -->
+<button class="pb-1 text-on-surface-variant text-label-md font-label-md transition-all duration-300 ease-in-out hover:bg-white/5 px-2">
+                    小部件
+                </button>
+<button class="pb-1 text-on-surface-variant text-label-md font-label-md transition-all duration-300 ease-in-out hover:bg-white/5 px-2">
+                    我的手机
+                </button>
+</nav>
+<!-- Actions -->
+<div class="flex items-center gap-4 text-on-surface">
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</button>
+<button class="p-2 hover:bg-white/10 rounded-full transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- App Grid Canvas -->
+<!-- 4x6 Grid -->
+<main class="flex-1 overflow-y-auto pb-dock-padding scrollbar-hide">
+<div class="grid grid-cols-4 gap-x-gutter-grid gap-y-6 auto-rows-max place-items-center">
+<!-- Icon Item 1 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-primary text-[28px]" data-icon="settings">settings</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Settings</span>
+</div>
+<!-- Icon Item 2 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-tertiary text-[28px]" data-icon="photo_library">photo_library</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Gallery</span>
+</div>
+<!-- Icon Item 3 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-secondary text-[28px]" data-icon="schedule">schedule</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Clock</span>
+</div>
+<!-- Icon Item 4 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-on-surface text-[28px]" data-icon="calculate">calculate</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Calculator</span>
+</div>
+<!-- Icon Item 5 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-error text-[28px]" data-icon="map">map</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Maps</span>
+</div>
+<!-- Icon Item 6 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-primary-fixed-dim text-[28px]" data-icon="mail">mail</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Mail</span>
+</div>
+<!-- Icon Item 7 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-secondary-container text-[28px]" data-icon="calendar_month">calendar_month</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Calendar</span>
+</div>
+<!-- Icon Item 8 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-tertiary-fixed-dim text-[28px]" data-icon="cloud">cloud</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Weather</span>
+</div>
+<!-- Icon Item 9 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-primary text-[28px]" data-icon="music_note">music_note</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Music</span>
+</div>
+<!-- Icon Item 10 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-on-surface-variant text-[28px]" data-icon="folder">folder</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Files</span>
+</div>
+<!-- Icon Item 11 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-primary-container text-[28px]" data-icon="storefront">storefront</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Store</span>
+</div>
+<!-- Icon Item 12 -->
+<div class="flex flex-col items-center gap-2 group cursor-pointer w-full">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+<span class="material-symbols-outlined fill text-error-container text-[28px]" data-icon="health_and_safety">health_and_safety</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface truncate w-full text-center">Health</span>
+</div>
+<!-- Generate empty slots to fill the 4x6 grid (24 total items) -->
+<script>
+                    const iconContainer = document.currentScript.parentElement;
+                    const usedIcons = 12;
+                    const totalIcons = 24;
+                    const placeholderIcons = ['note', 'videocam', 'mic', 'shopping_cart', 'translate', 'article', 'book', 'account_balance_wallet', 'fitness_center', 'games', 'brush', 'local_movies'];
+                    const placeholderColors = ['text-on-surface', 'text-secondary', 'text-tertiary', 'text-primary-fixed', 'text-on-surface-variant', 'text-outline', 'text-secondary-fixed', 'text-tertiary-fixed', 'text-primary-fixed-dim', 'text-inverse-primary', 'text-surface-tint', 'text-on-surface'];
+                    const placeholderLabels = ['Notes', 'Video', 'Recorder', 'Shopping', 'Translate', 'News', 'Books', 'Wallet', 'Fitness', 'Games', 'Drawing', 'Movies'];
+
+                    for(let i=0; i < (totalIcons - usedIcons); i++) {
+                        const div = document.createElement('div');
+                        div.className = 'flex flex-col items-center gap-2 group cursor-pointer w-full';
+                        div.innerHTML = `
+                            <div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center group-hover:scale-105 transition-transform glass-icon-container">
+                                <span class="material-symbols-outlined fill ${placeholderColors[i]} text-[28px]" data-icon="${placeholderIcons[i]}">${placeholderIcons[i]}</span>
+                            </div>
+                            <span class="text-label-md font-label-md text-on-surface truncate w-full text-center">${placeholderLabels[i]}</span>
+                        `;
+                        iconContainer.insertBefore(div, document.currentScript);
+                    }
+                </script>
+</div>
+</main>
+<!-- Paging Dots -->
+<footer class="shrink-0 flex justify-center pb-8 pt-4">
+<div class="flex gap-2 items-center bg-surface-container-lowest/30 px-3 py-1.5 rounded-full backdrop-blur-md">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant/50"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-on-surface-variant/50"></div>
+</div>
+</footer>
+</div>
+</body></html>
