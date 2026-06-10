@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Jiuyi Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#2a2a2a",
+                        "secondary-fixed-dim": "#d1bcff",
+                        "tertiary": "#ffd59c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-on-surface": "#313030",
+                        "secondary": "#d1bcff",
+                        "primary-container": "#00d1ff",
+                        "inverse-primary": "#00677f",
+                        "outline-variant": "#3c494e",
+                        "on-primary-fixed": "#001f28",
+                        "on-primary-fixed-variant": "#004e60",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "primary": "#a4e6ff",
+                        "on-error": "#690005",
+                        "on-secondary-fixed": "#23005b",
+                        "tertiary-container": "#feb127",
+                        "tertiary-fixed-dim": "#ffba49",
+                        "on-tertiary-container": "#6b4700",
+                        "on-surface": "#e5e2e1",
+                        "secondary-container": "#7000ff",
+                        "primary-fixed": "#b7eaff",
+                        "on-secondary-fixed-variant": "#5700c9",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "outline": "#859399",
+                        "on-surface-variant": "#bbc9cf",
+                        "primary-fixed-dim": "#4cd6ff",
+                        "on-tertiary": "#442b00",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#131313",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed": "#291800",
+                        "tertiary-fixed": "#ffddb1",
+                        "on-secondary-container": "#ddcdff",
+                        "error": "#ffb4ab",
+                        "error-container": "#93000a",
+                        "on-background": "#e5e2e1",
+                        "on-primary": "#003543",
+                        "on-primary-container": "#00566a",
+                        "surface-variant": "#353534",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary-fixed": "#e9ddff",
+                        "surface-container-highest": "#353534",
+                        "surface-tint": "#4cd6ff",
+                        "surface-dim": "#131313",
+                        "on-secondary": "#3c0090",
+                        "surface-container": "#201f1f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-grid": "16px",
+                        "drawer-top-gap": "64px",
+                        "dock-padding": "32px",
+                        "margin-main": "24px"
+                    },
+                    "fontFamily": {
+                        "display-time": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-date": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-time": ["80px", { "lineHeight": "80px", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-sm": ["10px", { "lineHeight": "12px", "fontWeight": "600" }],
+                        "display-date": ["18px", { "lineHeight": "24px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>body {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDbjLohdR4aKqRNQl7sEBPn9rYI9AiUNdzwxytn_a9tURacSji1-s00Dk3ynITMaj0d-cy0KLXlLbbGNu7gooNIGvysowPWFGCeYYjis98479ac1kULT2X3GBPN4HsvT0waJjtKhLxnl5amhx34e17WGMEWWz9HZrrYhMpZRHqxT0SyVRjh6iH7WBNTg_u28vdOSjdqG4ZGlgxtGMrPdIIyk1tWGusJ1KDPQLsanSz5N6C4j9DFcwo-gxsyL02-Jw3qIkXhUbNxcUo);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed
+    }
+.glass-panel {
+    background-color: rgba(28, 27, 27, 0.6);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }
+.glass-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1)
+    }
+.glass-item:last-child {
+    border-bottom: none
+    }
+/* Hide scrollbar for clean look */
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-screen overflow-hidden flex flex-col font-body-lg">
+<!-- TopAppBar Container (From JSON, modified for settings context) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-main h-drawer-top-gap backdrop-blur-3xl bg-surface-container-low/15 border-b border-white/10 text-primary dark:text-primary-fixed-dim transition-all duration-300 ease-in-out">
+<button class="flex items-center justify-center w-12 h-12 rounded-full hover:opacity-80 text-on-surface-variant">
+<span class="material-symbols-outlined text-headline-md font-headline-md">arrow_back</span>
+</button>
+<h1 class="text-headline-md font-headline-md text-on-surface">设置</h1>
+<div class="w-12 h-12"></div> <!-- Spacer for balance -->
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto pt-[calc(var(--spacing-drawer-top-gap)+24px)] pb-[calc(var(--spacing-dock-padding)+80px)] px-margin-main max-w-2xl mx-auto w-full">
+<!-- Section: 桌面设置 -->
+<section class="mb-8">
+<h2 class="text-label-md font-label-md text-primary mb-2 px-4 uppercase tracking-widest opacity-80">桌面设置</h2>
+<div class="glass-panel rounded-xl overflow-hidden shadow-lg">
+<!-- Drawer Layout Columns -->
+<div class="glass-item flex flex-col p-4 hover:bg-white/5 transition-colors">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<div>
+<h3 class="text-body-lg font-body-lg text-on-surface">抽屉布局</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">选择应用列表的列数</p>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 rounded-lg border border-white/10 text-on-surface-variant hover:bg-white/10 transition-colors text-label-md font-label-md">3 列</button>
+<button class="flex-1 py-2 rounded-lg border-2 border-primary bg-primary/10 text-primary transition-colors text-label-md font-label-md font-bold">4 列</button>
+<button class="flex-1 py-2 rounded-lg border border-white/10 text-on-surface-variant hover:bg-white/10 transition-colors text-label-md font-label-md">5 列</button>
+</div>
+</div>
+<!-- Icon Labels Toggle -->
+<div class="glass-item flex justify-between items-center p-4 hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">label</span>
+<div>
+<h3 class="text-body-lg font-body-lg text-on-surface">图标标签</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">在主屏幕和抽屉中显示应用名称</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<button class="w-12 h-6 rounded-full bg-primary relative transition-colors focus:outline-none">
+<div class="absolute right-1 top-1 w-4 h-4 rounded-full bg-on-primary shadow-sm transition-transform"></div>
+</button>
+</div>
+</div>
+</section>
+<!-- Section: 外观定制 -->
+<section class="mb-8">
+<h2 class="text-label-md font-label-md text-primary mb-2 px-4 uppercase tracking-widest opacity-80">外观定制</h2>
+<div class="glass-panel rounded-xl overflow-hidden shadow-lg">
+<!-- Icon Pack -->
+<button class="glass-item w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">category</span>
+<div>
+<h3 class="text-body-lg font-body-lg text-on-surface">图标包管理</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">系统默认</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+<!-- Theme Color -->
+<div class="glass-item flex flex-col p-4 hover:bg-white/5 transition-colors">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">palette</span>
+<div>
+<h3 class="text-body-lg font-body-lg text-on-surface">主题色</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">全局强调色</p>
+</div>
+</div>
+</div>
+<div class="flex gap-4 px-1">
+<button class="w-10 h-10 rounded-full bg-[#00d1ff] ring-2 ring-white shadow-lg relative flex items-center justify-center">
+<span class="material-symbols-outlined text-black text-[20px]">check</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-[#ffb4ab] border border-white/20 hover:scale-110 transition-transform"></button>
+<button class="w-10 h-10 rounded-full bg-[#d1bcff] border border-white/20 hover:scale-110 transition-transform"></button>
+<button class="w-10 h-10 rounded-full bg-[#ffd59c] border border-white/20 hover:scale-110 transition-transform"></button>
+<button class="w-10 h-10 rounded-full bg-[#a4e6ff] border border-white/20 hover:scale-110 transition-transform"></button>
+</div>
+</div>
+<!-- Wallpaper -->
+<button class="glass-item w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">wallpaper</span>
+<div>
+<h3 class="text-body-lg font-body-lg text-on-surface">壁纸管理</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">更改桌面和锁屏壁纸</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Section: 关于 -->
+<section class="mb-8">
+<h2 class="text-label-md font-label-md text-primary mb-2 px-4 uppercase tracking-widest opacity-80">关于</h2>
+<div class="glass-panel rounded-xl overflow-hidden shadow-lg">
+<div class="glass-item flex justify-between items-center p-4">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">info</span>
+<h3 class="text-body-lg font-body-lg text-on-surface">Jiuyi Launcher</h3>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">Version 1.0</span>
+</div>
+<button class="glass-item w-full flex justify-between items-center p-4 hover:bg-white/5 transition-colors text-left">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">gavel</span>
+<h3 class="text-body-lg font-body-lg text-on-surface">开源许可</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">chevron_right</span>
+</button>
+</div>
+</section>
+<div class="text-center mt-8 pb-8">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full border-4 border-primary bg-surface-container-high shadow-[0_0_15px_rgba(0,209,255,0.5)]">
+<span class="material-symbols-outlined text-primary text-headline-md font-headline-md">home</span>
+</div>
+</div>
+</main>
+<!-- Navigation Drawer Shell Component (Hidden on Settings but included per request structure, used as background layer conceptual anchor) -->
+<!-- Suppressed active BottomNavBar as this is a transactional/settings page -->
+</body></html>
